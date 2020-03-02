@@ -8,6 +8,7 @@ baseApiUrl = 'https://api.binance.us'
 connectivityEndpoint = '/api/v3/ping'
 klineDataEndpoint = '/api/v3/klines'
 testOrderEndpoint = '/api/v3/order/test'
+tickerEndpoint = '/api/v3/ticker/price'
 
 
 header = header = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -37,16 +38,26 @@ def testConnectivity():
     except:
         return 'exception thrown while trying to ping binance exchange'
 
+def getLatestPrice():
+    url = baseApiUrl + tickerEndpoint
+    data = {"symbol": "BTCUSDT"}
+    jsonData = json.loads(data)
+    try:
+        response = requests.get(url, data=jsonData)
+        if(response.status_code == 200):
+            return response
+        else:
+            return 'recieved error code '+ response.status_code + ' when attempting to retrieve ticker data'
+    except:
 
 def makePurchase():
     pass
 
-def makeTestPurchase():
+def makeTestOrder():
     pass
 
 def makeSale():
     pass
 
-def makeTestSale():
-    pass
+
 
