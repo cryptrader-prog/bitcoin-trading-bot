@@ -24,13 +24,13 @@ placeOrderEndpoint = '/api/v3/order'
 
 
 #default header value
-header = header = {'Content-type': 'application/json', 'Accept': 'application/json'}
+header = {'Content-type': 'application/json', 'Accept': 'application/json'}
 
 
 #method used to get historical kline values, interval time can be changed. Also start and end time for data can be added to call
 def getHistoricalData():
     url = baseApiUrl + klineDataEndpoint
-    data = {'symbol': 'BTCUSDT', 'interval': 'KLINE_INTERVAL_1MINUTE'}
+    data = {'symbol': 'BTCUSDT', 'interval': '1m'}
     jsonData = json.loads(data)
     try:
         response = requests.get(url, data=jsonData, header = header)
@@ -109,7 +109,21 @@ def makeTestOrder():
 
 #call to make a sale
 def makeSale():
-    pass
+    url = baseApiUrl + placeOrderEndpoint
+    data = {'symbol': 'BTCUSDT', 'side': 'SELL', 'type':'MARKET', 'quoteOrderQty': 1000}
+    
+
+    #encodes order request
+    m = hmac.new(apiSecret.encode('utf-8'), urlencode(data).encode('utf-8'), sha256)
+    data.update({'signature': m})
+    try:
+        response = requests.post(url, data=m)
+        if(response.status_code == 200):
+            return response
+        else:
+            return 'recieved error code '+ response.status_code + ' when attempting to retrieve ticker data'
+    except:
+        return 'exception thrown while trying to ping binance exchange'
 
 
 
