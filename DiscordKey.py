@@ -1,1 +1,1 @@
-DiscordWebhook={'webhookUrl': yourUrl}
+DiscordWebhook={'webhookUrl': 'yourUrl'}

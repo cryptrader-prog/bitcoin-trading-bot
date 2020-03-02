@@ -1,1 +1,1 @@
-BinanceKey1= {'api_key': yourApiKey, 'api_secret': yourApiSecret}
+BinanceKey1= {'api_key': 'yourApiKey', 'api_secret': 'yourApiSecret'}
