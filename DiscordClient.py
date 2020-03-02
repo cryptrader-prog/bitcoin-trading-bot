@@ -2,6 +2,10 @@ import requests
 import DiscordKey
 import json
 
+
+# used to post messages to discord, avatar url can be replace with whatever image url you wish
+
+
 discordApi = DiscordKey.DiscordWebhook.get('webhookUrl')
 
 def callWebhook(message):
@@ -10,5 +14,3 @@ def callWebhook(message):
     jsonMessage = json.loads(message)
     header = {'Content-type': 'application/json', 'Accept': 'text/plain'}
     requests.post(url=discordApi, data=jsonMessage, headers=header)
-
-callWebhook('abc')
