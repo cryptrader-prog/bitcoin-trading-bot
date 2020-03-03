@@ -1,6 +1,6 @@
 import DateTime
 import DiscordClient
-import BinanceClient
+from ccxt import binanceus
 
 
 def run():
@@ -11,8 +11,9 @@ def run():
     
     #make call to Binance to gather trading data
     try:
-        historicalData = BinanceClient.getHistoricalData()
-        print("Historical Data: ",historicalData)
+        symbolData = binanceus.symbols
+        
+        print("symbol Data: ",symbolData)
     except:
         pass
 

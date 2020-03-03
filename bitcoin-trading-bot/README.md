@@ -22,6 +22,7 @@ git clone https://github.com/cryptrader-prog/bitcoin-trading-bot.git
     - requests
     - DateTime
     - time
+    - ccxt
 
 
 
