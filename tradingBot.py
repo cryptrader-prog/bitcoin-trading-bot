@@ -15,11 +15,16 @@ def run():
     try:
         tickerData = BinanceClient.getBinanceTickerData("BTCUSD")
         print("ticker Data: ",tickerData)
+       
+       
         print("calling webhook with ticker data, check your discord!")
         DiscordClient.callWebhook("ticker Data: " + tickerData)
+       
         print("making test order")
         testOrder = DiscordClient.makeTestOrder()
         print(testOrder)
+    
+    
     except:
         pass
 
