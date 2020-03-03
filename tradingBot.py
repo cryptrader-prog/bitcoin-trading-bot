@@ -1,6 +1,8 @@
 import DateTime
 import DiscordClient
-from ccxt import binanceus
+import BinanceClient
+
+
 
 
 def run():
@@ -11,9 +13,10 @@ def run():
     
     #make call to Binance to gather trading data
     try:
-        symbolData = binanceus.symbols
+        tickerData = BinanceClient.getBinanceTickerData("BTCUSD")
+        DiscordClient.callWebhook("ticker Data: " + tickerData)
         
-        print("symbol Data: ",symbolData)
+        print("ticker Data: ",tickerData)
     except:
         pass
 
@@ -32,6 +35,9 @@ def run():
 
 
 run()
+
+
+#when ready, switch to the below method to run the job continuously
 '''
 while(True):
     run()

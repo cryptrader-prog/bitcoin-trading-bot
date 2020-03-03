@@ -24,5 +24,8 @@ git clone https://github.com/cryptrader-prog/bitcoin-trading-bot.git
     - time
     - ccxt
 
+- in the BinanceClient file, update the api key and api secret with your information
+- in the DiscordClient file, update the webhook url with your webhook url
+
 
 
