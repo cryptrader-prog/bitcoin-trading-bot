@@ -18,7 +18,7 @@ apiSecret = BinanceKey.BinanceKey1.get('api_secret')
 Ccxt = ccxt.binanceus()
 
 #sets exchange api key and secret for ccxt
-exchange_id = 'binance'
+exchange_id = 'binanceus'
 exchange_class = getattr(ccxt, exchange_id)
 exchange = exchange_class({
     'apiKey': 'YOUR_API_KEY',
