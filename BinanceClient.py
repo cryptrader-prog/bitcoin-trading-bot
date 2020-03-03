@@ -21,15 +21,18 @@ Ccxt = ccxt.binanceus()
 exchange_id = 'binance'
 exchange_class = getattr(ccxt, exchange_id)
 exchange = exchange_class({
-    'apiKey': apiKey,
-    'secret': apiSecret,
-    'timeout': 30000,
+    'apiKey': 'YOUR_API_KEY',
+    'secret': 'YOUR_API_SECRET',
     'enableRateLimit': True,
+    'options': {
+        'defaultType': 'future',  # ←-------------- quotes and 'future'
+    },
 })
 
 def getBinanceTickerData(ticker):
 
-    return Ccxt.fetch_ticker(symbol=ticker)
+    return exchange.fetch_ticker(symbol=ticker)
 
 def getAvailableCurrencies():
-    return Ccxt.fetch_currencies()
+    return exchange.fetch_currencies()
+
