@@ -14,9 +14,12 @@ def run():
     #make call to Binance to gather trading data
     try:
         tickerData = BinanceClient.getBinanceTickerData("BTCUSD")
-        DiscordClient.callWebhook("ticker Data: " + tickerData)
-        
         print("ticker Data: ",tickerData)
+        print("calling webhook with ticker data, check your discord!")
+        DiscordClient.callWebhook("ticker Data: " + tickerData)
+        print("making test order")
+        testOrder = DiscordClient.makeTestOrder()
+        print(testOrder)
     except:
         pass
 

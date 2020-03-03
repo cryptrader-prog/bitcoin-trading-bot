@@ -36,3 +36,22 @@ def getBinanceTickerData(ticker):
 def getAvailableCurrencies():
     return exchange.fetch_currencies()
 
+def getBalances():
+    return exchange.fetch_balance()
+
+def makePurchase():
+    pass
+
+def makeSale():
+    pass
+
+def makeTestOrder():
+    symbol = 'BNB/BTC'  
+    type = 'limit'  # or 'market'
+    side = 'sell'  # or 'buy'
+    amount = 1.0
+    price = 0.060154  # or None
+    params = {
+    'test': True,  # test if it's valid, but don't actually place it
+    }
+    return exchange.create_order(symbol, type, side, amount, price, params)
