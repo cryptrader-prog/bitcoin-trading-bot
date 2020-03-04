@@ -29,6 +29,8 @@ exchange = exchange_class({
     },
 })
 
+markets = exchange.load_markets()
+
 def getBinanceTickerData(ticker):
 
     return exchange.fetch_ticker(symbol=ticker)
@@ -55,3 +57,6 @@ def makeTestOrder():
     'test': True,  # test if it's valid, but don't actually place it
     }
     return exchange.create_order(symbol, type, side, amount, price, params)
+
+def getMarkets():
+    return print(exchange.id, markets)
