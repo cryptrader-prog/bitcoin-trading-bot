@@ -10,7 +10,7 @@ import ccxt
 
 # Information used for developing api calls was found at https://github.com/binance-exchange/binance-official-api-docs
 # Each method that sends json in the api call uses the "data" variable to pass in json information 
-
+# setup docs https://buildmedia.readthedocs.org/media/pdf/ccxt/stable/ccxt.pdf
 
 apiKey = BinanceKey.BinanceKey1.get('api_key')
 apiSecret = BinanceKey.BinanceKey1.get('api_secret')
