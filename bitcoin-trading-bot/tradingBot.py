@@ -37,7 +37,7 @@ def run():
     testOrder = BinanceClient.makeTestOrder()
     print(testOrder)
 
-  
+
     
     
 
