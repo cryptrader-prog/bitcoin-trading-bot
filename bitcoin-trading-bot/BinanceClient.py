@@ -1,32 +1,22 @@
-import requests
-import DateTime
-import time
-import json
 import BinanceKey
-from hashlib import sha256
-from urllib.parse import urlencode
-import hmac
 import ccxt
 
-# Information used for developing api calls was found at https://github.com/binance-exchange/binance-official-api-docs
-# Each method that sends json in the api call uses the "data" variable to pass in json information 
-# setup docs https://buildmedia.readthedocs.org/media/pdf/ccxt/stable/ccxt.pdf
+# ccxt docs https://buildmedia.readthedocs.org/media/pdf/ccxt/stable/ccxt.pdf
 
 apiKey = BinanceKey.BinanceKey1.get('api_key')
 apiSecret = BinanceKey.BinanceKey1.get('api_secret')
 
-Ccxt = ccxt.binanceus()
+
 
 #sets exchange api key and secret for ccxt
+#exchange id can be changed to use other exchanges, for example: to use binance.com instead of binance.us, change the id to 'binance'
 exchange_id = 'binanceus'
 exchange_class = getattr(ccxt, exchange_id)
 exchange = exchange_class({
-    'apiKey': 'YOUR_API_KEY',
-    'secret': 'YOUR_API_SECRET',
+    'apiKey': apiKey,
+    'secret': apiSecret,
     'enableRateLimit': True,
-    'options': {
-        'defaultType': 'future',  # ←-------------- quotes and 'future'
-    },
+    'options': { 'adjustForTimeDifference': True }
 })
 
 markets = exchange.load_markets()
@@ -38,21 +28,39 @@ def getBinanceTickerData(ticker):
 def getAvailableCurrencies():
     return exchange.fetch_currencies()
 
-def getBalances():
+def getBalance():
     return exchange.fetch_balance()
 
-def makePurchase():
-    pass
+def makePurchase(amt, price):
+    symbol = 'BTC/USD'
+    type = 'market'  # 'limit' or 'market'
+    side = 'buy'  # 'buy' or 'sell'
+    amount = amt
+    price = None  # or None
+    params = {
+        'test': False,  # test if it's valid, but don't actually place it
+    }
+    return exchange.create_order(symbol, type, side, amount, price, params)
 
-def makeSale():
-    pass
+
+def makeSale(amt, price):
+    symbol = 'BTC/USD'
+    type = 'market'  # ' limit' or 'market'
+    side = 'sell'  # 'buy' or 'sell'
+    amount = amt
+    price = price  # or None
+    params = {
+        'test': False,  # test if it's valid, but don't actually place it
+    }
+    return exchange.create_order(symbol, type, side, amount, price, params)
+
 
 def makeTestOrder():
-    symbol = 'BNB/BTC'  
+    symbol = 'BTC/USDT'
     type = 'limit'  # or 'market'
     side = 'sell'  # or 'buy'
-    amount = 1.0
-    price = 0.060154  # or None
+    amount = .001
+    price = 10000.00  # or None
     params = {
     'test': True,  # test if it's valid, but don't actually place it
     }
@@ -60,3 +68,4 @@ def makeTestOrder():
 
 def getMarkets():
     return print(exchange.id, markets)
+

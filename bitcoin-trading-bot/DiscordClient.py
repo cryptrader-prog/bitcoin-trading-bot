@@ -1,16 +1,20 @@
-import requests
-import DiscordKey
 import json
 
+import DiscordKey
+import requests
 
-# used to post messages to discord, avatar url can be replace with whatever image url you wish
-
-
+# used to post messages to discord
 discordApi = DiscordKey.DiscordWebhook.get('webhookUrl')
 
+
 def callWebhook(message):
-    print(discordApi)
-    message = '{"username": "Trading Bot","avatar_url": "https://i.imgur.com/4M34hi2.png", "content": "'+message+'"}'
-    jsonMessage = json.loads(message)
-    header = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-    requests.post(url=discordApi, data=jsonMessage, headers=header)
+    data = {}
+    data["content"] = message
+    data["username"] = "bitcoin bot"
+
+    result = requests.post(discordApi, data=json.dumps(data), headers={"Content-type": "application/json"})
+    try:
+        result.raise_for_status()
+    except requests.exceptions.HTTPError as err:
+        print(err)
+
