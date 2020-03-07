@@ -29,3 +29,18 @@ git clone https://github.com/cryptrader-prog/bitcoin-trading-bot.git
 
 
 
+
+### Support and Feedback
+
+    Want to see a new feature or additional functionality? Feel free to send me an email at : markl89@protonmail.com
+    If you are creating a new account for Binance.us to use this bot feel free to use this referral code: 
+    https://www.binance.us/?ref=35103015
+    Wish to donate? my wallet address for bitcoin is: 1BBiVifhXDv91BEEa4ft3Ubh8PvkQBzzHf
+    
+
+### Future Versions
+- youtube video tutorial on setting up this bot
+- implementation of more exchange api calls
+- possible addition of indicator calculations (RSI, Moving Averages, etc)
+- twitter notification option
+
