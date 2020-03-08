@@ -23,8 +23,8 @@ def run():
     message = "symbol ("+ str(symbolname) + ") data: currentHigh: " + str(marketHigh) + " currentLow: " + str(marketLow) + " PriceChange: " + str(priceChange)
 
     #sends symbol data to discord channel
-    # print("calling webhook with ticker data, check your discord!")
-    # DiscordClient.callWebhook("ticker Data: " + message)
+    print("calling webhook with ticker data, check your discord!")
+    DiscordClient.callWebhook("ticker Data: " + message)
 
     #sends symbol data to twitter account
     # print("sending ticker data, check your twitter!")

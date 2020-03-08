@@ -17,12 +17,14 @@ git clone https://github.com/cryptrader-prog/bitcoin-trading-bot.git
 
 ### Setup Instructions
 
+- you can visit this youtube link for a video walkthrough: 
 - to run the application, you will need to use "pip install" to install the following dependancies
     - json
     - requests
     - DateTime
     - time
     - ccxt
+    - tweepy
 
 - in the BinanceClient file, update the api key and api secret with your information
 - in the DiscordClient file, update the webhook url with your webhook url
