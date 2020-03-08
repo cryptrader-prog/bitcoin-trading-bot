@@ -1,5 +1,6 @@
 import DiscordClient
 import BinanceClient
+import TwitterClient
 
 
 def run():
@@ -22,8 +23,12 @@ def run():
     message = "symbol ("+ str(symbolname) + ") data: currentHigh: " + str(marketHigh) + " currentLow: " + str(marketLow) + " PriceChange: " + str(priceChange)
 
     #sends symbol data to discord channel
-    print("calling webhook with ticker data, check your discord!")
-    DiscordClient.callWebhook("ticker Data: " + message)
+    # print("calling webhook with ticker data, check your discord!")
+    # DiscordClient.callWebhook("ticker Data: " + message)
+
+    #sends symbol data to twitter account
+    # print("sending ticker data, check your twitter!")
+    # TwitterClient.sendToTwitter("ticker Data: " + message)
 
     #gets current balances of all currencies and displays freely usable funds for BTC and USD
     print("getting balance")
