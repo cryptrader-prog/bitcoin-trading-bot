@@ -21,16 +21,23 @@ exchange = exchange_class({
 
 markets = exchange.load_markets()
 
+
+#get current ticker data
 def getBinanceTickerData(ticker):
 
     return exchange.fetch_ticker(symbol=ticker)
 
+
+#gets all available currency types
 def getAvailableCurrencies():
     return exchange.fetch_currencies()
 
+#gets existing balances
 def getBalance():
     return exchange.fetch_balance()
 
+
+#makes a purchase order
 def makePurchase(amt, price):
     symbol = 'BTC/USD'
     type = 'market'  # 'limit' or 'market'
@@ -42,7 +49,7 @@ def makePurchase(amt, price):
     }
     return exchange.create_order(symbol, type, side, amount, price, params)
 
-
+#makes sell order
 def makeSale(amt, price):
     symbol = 'BTC/USD'
     type = 'market'  # ' limit' or 'market'
@@ -54,7 +61,7 @@ def makeSale(amt, price):
     }
     return exchange.create_order(symbol, type, side, amount, price, params)
 
-
+#makes a test order
 def makeTestOrder():
     symbol = 'BTC/USDT'
     type = 'limit'  # or 'market'
@@ -66,6 +73,22 @@ def makeTestOrder():
     }
     return exchange.create_order(symbol, type, side, amount, price, params)
 
+#returns available market data
 def getMarkets():
     return print(exchange.id, markets)
 
+#returns your trade data
+def getMyTrades():
+    return exchange.fetch_my_trades()
+
+#returns current time on exchange server
+def getExchangeTime():
+    return exchange.fetch_time()
+
+#get OHLCV data for a symbol, default is 1 hour
+def getOhlcvData(symbol):
+    return exchange.fetchOHLCV(symbol= symbol, timeframe="1h")
+
+#return bid/ask price data
+def getBidAskData(symbols):
+    return exchange.fetch_bids_asks(symbols=symbols)
