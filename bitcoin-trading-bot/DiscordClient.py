@@ -1,10 +1,10 @@
 import json
 
-import DiscordKey
+from keyValues import DiscordWebhook
 import requests
 
 # used to post messages to discord
-discordApi = DiscordKey.DiscordWebhook.get('webhookUrl')
+discordApi = DiscordWebhook.get('webhookUrl')
 
 
 def callWebhook(message):

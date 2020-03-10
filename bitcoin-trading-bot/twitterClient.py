@@ -1,8 +1,8 @@
 import tweepy
-import twitterKey
+from keyValues import twitterKey
 
-consumerSecret = twitterKey.twitterKey.get('consumer_secret')
-accessToken = twitterKey.twitterKey.get('access_token_secret')
+consumerSecret = twitterKey.get('consumer_secret')
+accessToken = twitterKey.get('access_token_secret')
 
 
 

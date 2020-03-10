@@ -1,10 +1,11 @@
 import BinanceKey
 import ccxt
+from keyValues import BinanceKey1
 
 # ccxt docs https://buildmedia.readthedocs.org/media/pdf/ccxt/stable/ccxt.pdf
 
-apiKey = BinanceKey.BinanceKey1.get('api_key')
-apiSecret = BinanceKey.BinanceKey1.get('api_secret')
+apiKey = BinanceKey1.get('api_key')
+apiSecret = BinanceKey1.get('api_secret')
 
 
 
